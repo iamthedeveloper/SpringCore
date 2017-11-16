@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	
+	<bean id="Kranti" class="com.kranti.springcore.SpringWithCollections.Employee">
+		<property name="name" value="Kranti"></property>
+		<property name="designation" value="TechLead"></property>
+		<property name="dob">
+			<bean class="java.util.Date"></bean>
+		</property>
+	</bean>
+	<bean id="Kiran" class="com.kranti.springcore.SpringWithCollections.Employee">
+		<property name="name" value="Kiran"></property>
+		<property name="designation" value="Associate"></property>
+		<property name="dob">
+			<bean class="java.util.Date"></bean>
+		</property>
+	</bean>
+
+	<bean id="collectionsBean" class="com.kranti.springcore.SpringWithCollections.CollectionsExample">
+		<constructor-arg>
+			<list>
+				<ref bean="Kranti"></ref>
+				<ref bean="Kiran"></ref>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="Kranti" value-ref="Kranti"></entry>
+				<entry key="Kiran" value-ref="Kiran"></entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Kranti</value>
+				<value>Kiran</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
